@@ -1,0 +1,44 @@
+[user]
+	name           =
+	email          =
+[push]
+	default        = current
+[color]
+  diff           = auto
+  status         = auto
+  branch         = auto
+  interactive    = auto
+  ui             = true
+[color "status"]
+  added          = green
+  changed        = yellow
+  untracked      = red
+[core]
+	editor         = vim
+[alias]
+  showa          = "!git config -l | grep alias | cut -c 7-"
+  up             = pull --rebase
+  fr             = flow feature rebase
+  l              = log -p
+  ls             = log --date=format:"%I:%M%p\\ %a\\ %b\\ %d\\ %Y" --pretty=format:"%C(dim)%C(yellow)%h\\ %C(reset)%C(yellow)%cd\\ %C(red)%d\\ %C(reset)%C(blue)%s\\ %C(magenta)[%an] --abbrev-commit"
+  ll             = log --date=format:"%I:%M%p\\ %a\\ %b\\ %d\\ %Y" --pretty=format:"%C(yellow)%h\\ %C(blue)%s\\ %C(red)[%an]\\ %C(yellow)%cd" --stat --abbrev-commit
+  lg             = log --graph --oneline --all
+  st             = status
+  co             = checkout
+  b              = branch
+# replace NAME with your name
+#  mine           = !git for-each-ref --format='%(authorname) %09 %(refname)' | grep --color=auto 'NAME'
+  d              = diff --cached
+  cp             = cherry-pick
+  changes        = log --pretty=format:\"%h %ad | %s [%an]\" --stat --date=short HEAD@{1}..
+  find           = log --pretty=\"format:%Cgreen%h %Cblue%s\" --name-status --grep
+  uncommit       = reset --soft HEAD^
+  blame          = blame -c
+  authors        = for-each-ref --format="%(committerdate)\\ %09\\ %(authorname)\\ %09\\ %(refname)"
+[diff]
+	tool           = vimdiff
+[difftool]
+	prompt         = false
+[log]
+	decorate       = full
+	date           = local
